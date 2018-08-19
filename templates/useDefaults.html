@@ -1,0 +1,43 @@
+{% extends "baseformat.html" %}
+{% block title %}Character Maker - Use Defaults{% endblock %}
+
+{% block content %}
+  <h1>Make your Character below...</h1>
+  {% if age %}
+    <h2>age: {{ age }}</h2>
+  {% endif %}
+  {% if gender %}
+    <h2>Gender: {{ gender }}</h2>
+  {% endif %}
+  {% if race %}
+    <h2>Race: {{ race }}</h2>
+  {% endif %}
+  {% if sex %}
+    <h2>Sexuality: {{ sex }}</h2>
+  {% endif %}
+  <p>Generate a new character..</p>
+
+  <form action ="/defaults" method="post">
+      {% if age %}
+      <input type="checkbox" name="doAge" value=True checked>Age<br>
+      {% else %}
+      <input type="checkbox" name="doAge" value=True>Age<br>
+      {% endif %}
+      {% if race %}
+      <input type="checkbox" name="doRace" value=True checked>Race<br>
+      {% else %}
+      <input type="checkbox" name="doRace" value=True>Race<br>
+      {% endif %}
+      {% if gender %}
+      <input type="checkbox" name="doGender" value=True checked>Gender<br>
+      {% else %}
+      <input type="checkbox" name="doGender" value=True>Gender<br>
+      {% endif %}
+      {% if sex %}
+      <input type="checkbox" name="doSex" value=True checked>Sexual Orientation<br>
+      {% else %}
+      <input type="checkbox" name="doSex" value=True>Sexual Orientation<br>
+      {% endif %}
+      <button type="submit" formmethod="post">Make me a character!</button>
+  </form>
+{% endblock %}
